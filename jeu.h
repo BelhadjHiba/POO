@@ -1,10 +1,3 @@
-/*
- * jeu.h
- *
- *  Created on: 23 déc. 2021
- *      Author: aveyronvictor
- */
-
 #ifndef JEU_H_
 #define JEU_H_
 
@@ -18,4 +11,4 @@ public:
 	int getCompteur(){return this->tourdejeu;};
 };
 
-#endif /* JEU_H_ */
+#endif 

@@ -1,12 +1,3 @@
-//============================================================================
-// Name        : tp6-test.cpp
-// Author      : vory
-// Version     :
-// Copyright   : Your copyright notice
-// Description : Hello World in C++, Ansi-style
-//============================================================================
-
-#include <iostream>
 #include "banque.h"
 #include "Case.h"
 #include "banque.h"
@@ -24,7 +15,10 @@
 #include "Plateau.h"
 #include "Terrain.h"
 
-gobelet Gobelet = gobelet(); // définir une varaibel globale
+#include <iostream> 
+using namespace std; 
+
+gobelet Gobelet = gobelet(); 
 
 int main() {
 
@@ -35,30 +29,25 @@ int main() {
 
 	plateau.afficheCases();
 
-	std::cout << "Bienvenue dans le logiciel Monopoly de ORY Victor, CHAPLAIN Nicolas, GOURC Corentin et ROYANT Killian" << std::endl ;
+	cout << "Bienvenue dans le logiciel Monopoly de ORY Victor, CHAPLAIN Nicolas, GOURC Corentin et ROYANT Killian" << endl ;
 	int nmbrJoueur ;
     try {
-        std::cout << "Veuiller entrer le nombre de joueur : " << std::endl ;
-        std::cin >> nmbrJoueur ;
+        cout << "Veuiller entrer le nombre de joueur : " << endl ;
+        cin >> nmbrJoueur ;
     }
     catch (...) {
-        std::cout << "Erreur : Veuillez entrer un entier." << std::endl ;
+        cout << "Erreur : Veuillez entrer un entier." << endl ;
     }
 
 	joueur* listeJoueur = new joueur[nmbrJoueur];
 
-	// Création du plateau de manière à pouvoir placer le pion sur la carte départ
-
-
-
 	for (int i = 0 ; i < nmbrJoueur ; i ++ ) {
-
-		std::string nomJoueur;
-		std::cout << "Comment s'appelle le Joueur " << i + 1 << "?" << std::endl;
-		std::cin >> nomJoueur ;
-		std::string nomPion ;
-		std::cout << "Entrer le nom du pion que vous voulez sélectionner pour le jouer numéro " <<  i << std::endl ;
-		std::cin >> nomPion ;
+		string nomJoueur;
+		cout << "Comment s'appelle le Joueur " << i + 1 << "?" << endl;
+		cin >> nomJoueur ;
+		string nomPion ;
+		cout << "Entrer le nom du pion que vous voulez sélectionner pour le jouer numéro " <<  i << endl ;
+		cin >> nomPion ;
 
 		pion* ptPion = new pion(nomPion,plateau.getListeCase());
 		pion Pion = *ptPion ;
@@ -70,28 +59,21 @@ int main() {
 		Pion.setPosition(plateau.getListeCase());
 	}
 
-	std::cout<< "La phase de création des joueurs est finie ! " << std::endl;
+	cout<< "La phase de création des joueurs est finie ! " << endl;
 
 	for (int i = 0 ;  i < nmbrJoueur ; i ++ ) {
 		pion ptPionaffiche = *listeJoueur[i].getptPion();
-		std::string Pionaffiche = ptPionaffiche.getNom();
-		std::string casedépart = ptPionaffiche.getPosition()->getNom();
-		std::cout << "La position actuelle du pion"<< Pionaffiche << "du joueur "<< listeJoueur[i].getNom() <<" est la case : " << casedépart << std::endl;
+		string Pionaffiche = ptPionaffiche.getNom();
+		string casedepart = ptPionaffiche.getPosition()->getNom();
+		cout << "La position actuelle du pion"<< Pionaffiche << "du joueur "<< listeJoueur[i].getNom() <<" est la case : " << casedepart << endl;
 	}
 
 	jeu Jeu = jeu();
 
-
-	// initialisation de la case des joueurs
-
-	// On commence la partie
-
-	//gobelet Gobelet = gobelet();
-
 	while (Jeu.getCompteur() < 100 )  {
 		for (int i = 0 ; i < nmbrJoueur ; i ++){
 			joueur Joueur = listeJoueur[i];
-			Joueur.jouer( plateau , Gobelet);
+			Joueur.jouer( plateau);
 		}
 	}
 	return 0;

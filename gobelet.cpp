@@ -1,10 +1,3 @@
-/*
- * gobelet.cpp
- *
- *  Created on: 23 déc. 2021
- *      Author: aveyronvictor
- */
-
 #include "gobelet.h"
 
 gobelet::gobelet() {
@@ -12,9 +5,7 @@ gobelet::gobelet() {
     de2 = de();
 }
 
-gobelet::~gobelet() {
-    // TODO Auto-generated destructor stub
-}
+gobelet::~gobelet() {}
 
 void gobelet::lancer(){
     de1.lancer();

@@ -1,22 +1,15 @@
-/*
- * de.cpp
- *
- *  Created on: 23 déc. 2021
- *      Author: aveyronvictor
- */
-
 #include "de.h"
 #include <stdlib.h>
+#include <iostream> 
+using namespace std; 
 
 de::de() {
 	this->valeur = 0 ;
 	this->nbFaces =6;
 }
 
-de::~de() {
-	// TODO Auto-generated destructor stub
-}
+de::~de() {}
 
 void de::lancer(){
-	this->valeur = rand() % (this->nbFaces - 1) + 1; // On lance un dé et on actualise la valeur du dé
+	this->valeur = rand() % (this->nbFaces - 1) + 1;
 }

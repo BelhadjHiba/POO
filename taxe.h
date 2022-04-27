@@ -1,21 +1,16 @@
-/*
- * taxe.h
- *
- *  Created on: 18 janv. 2022
- *      Author: aveyronvictor
- */
-
 #ifndef TAXE_H_
 #define TAXE_H_
 
 #include "Case.h"
 #include "joueur.h"
+#include <iostream> 
+using namespace std; 
 
 class taxe: public Case {
 public:
-	taxe(std::string nom, Case* suivante=NULL);
+	taxe(string nom, Case* suivante=NULL);
 	virtual ~taxe();
 	void arreterSur(joueur* ptJoueur);
 };
 
-#endif /* TAXE_H_ */
+#endif 

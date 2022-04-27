@@ -1,10 +1,3 @@
-/*
- * bnaque.h
- *
- *  Created on: 23 déc. 2021
- *      Author: aveyronvictor
- */
-
 #ifndef BANQUE_H_
 #define BANQUE_H_
 
@@ -14,4 +7,4 @@ public:
 	virtual ~banque();
 };
 
-#endif /* BANQUE_H_ */
+#endif 

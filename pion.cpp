@@ -1,12 +1,7 @@
-/*
- * Pion.cpp
- *
- *  Created on: 23 déc. 2021
- *      Author: aveyronvictor
- */
-
 #include "pion.h"
 #include "Plateau.h"
+#include <iostream> 
+using namespace std; 
 
 pion::pion(){
 	this->nom = "undefinied";
@@ -14,14 +9,12 @@ pion::pion(){
 	this->ptJoueur = NULL;
 }
 
-pion::pion(std::string nom,Case* ptPosition) {
+pion::pion(string nom,Case* ptPosition) {
 	this->ptJoueur =NULL;
 	this->ptPosition = ptPosition;
 }
 
-pion::~pion() {
-	// Destructeur automatique. Le pion reste utile jusqu'à la toute fin du jeu. 
-}	
+pion::~pion() {}	
 
 void pion::deplacer(int combien,Plateau plateau){
 	joueur Joueur = *ptJoueur;

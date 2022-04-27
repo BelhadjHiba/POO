@@ -1,13 +1,8 @@
-/*
- * Cartechance.cpp
- *
- *  Created on: 12 janv. 2022
- *      Author: aveyronvictor
- */
-
 #include "Carte.h"
+#include <iostream> 
+using namespace std; 
 
-Carte::Carte(std::string text,int gain, int perte,int deplacemenent,Case* ptTeleportation) {
+Carte::Carte(string text,int gain, int perte,int deplacemenent,Case* ptTeleportation) {
 	this->gain = gain;
 	this->perte = perte ;
 	this->ptTeleportation = ptTeleportation;
@@ -22,7 +17,5 @@ Carte::Carte(){
 	this->text="";
 }
 
-Carte::~Carte() {
-	// TODO Auto-generated destructor stub
-}
+Carte::~Carte() {}
 

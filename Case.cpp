@@ -1,14 +1,9 @@
-/*
- * Case.cpp
- *
- *  Created on: 23 déc. 2021
- *      Author: aveyronvictor
- */
-
 #include "Case.h"
 #include "joueur.h"
+#include <iostream> 
+using namespace std; 
 
-Case::Case(std::string nom, Case* suivante) {
+Case::Case(string nom, Case* suivante) {
 	this->nom  = nom ;
 	this->suivante = suivante;
 }
@@ -18,11 +13,7 @@ Case::Case(){
 	this->suivante = NULL;
 }
 
-Case::~Case() {
-	// TODO Auto-generated destructor stub
-}
+Case::~Case() {}
 
-void Case::arreterSur(joueur *joueur) {
-
-}
+void Case::arreterSur(joueur *joueur) {}
 

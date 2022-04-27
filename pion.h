@@ -1,16 +1,8 @@
-/*
- * Pion.h
- *
- *  Created on: 23 déc. 2021
- *      Author: aveyronvictor
- */
-
 #ifndef PION_H_
 #define PION_H_
 
-#include <iostream>
-
-
+#include <iostream> 
+using namespace std; 
 
 class joueur;
 class Case;
@@ -18,24 +10,24 @@ class Plateau ;
 
 class pion {
 	private :
-		joueur* ptJoueur ; //Nom du joueur associé au Pion
-		Case* ptPosition ; //Position du pion sur le plateau
-		std::string nom ; //Nom du pion
+		joueur* ptJoueur ; 
+		Case* ptPosition ; 
+		string nom ; 
 	public:
-		pion(); //Constructeur du pion
-		pion(std::string nom,Case* ptPosition);
-		virtual ~pion(); //Destructeur du pion, inutile s'il reste jusqu'à la fin de la partie mais on le laisse pour la beauté du geste
+		pion(); 
+		pion(string nom,Case* ptPosition);
+		virtual ~pion(); 
 
-		void setJoueur ( joueur* Joueur ) {this->ptJoueur = Joueur;}; //Définis quel joueur possède ce pion
-		joueur* getJoueur () { return this->ptJoueur; }; //Return quel joueur possède ce pion
+		void setJoueur ( joueur* Joueur ) {this->ptJoueur = Joueur;}; 
+		joueur* getJoueur () { return this->ptJoueur; }; 
 
-		void setPosition(Case* truc) {this->ptPosition = truc;}; //Définis la case sur laquelle se situe le pion
-		Case* getPosition() {return this->ptPosition;}; //Return la position où se trouve le pion
+		void setPosition(Case* truc) {this->ptPosition = truc;}; 
+		Case* getPosition() {return this->ptPosition;};
 
-		void setNom(std::string nom){this->nom = nom;}; //Définis le nom du pion
-		std::string getNom(){return this->nom;}; //Return le nom du Pion
+		void setNom(string nom){this->nom = nom;}; 
+		string getNom(){return this->nom;}; 
 
-		void deplacer(int combien,Plateau plateau); //Déplace le pion sur le plateau
+		void deplacer(int combien,Plateau plateau); 
 };
 
-#endif /* PION_H_ */
+#endif 

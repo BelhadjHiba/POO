@@ -1,12 +1,7 @@
-/*
- * couleur.cpp
- *
- *  Created on: 20 janv. 2022
- *      Author: aveyronvictor
- */
-
 #include "couleur.h"
 #include "joueur.h"
+#include <iostream> 
+using namespace std; 
 
 couleur::couleur(){
 	this->nom = "No Name";
@@ -15,16 +10,13 @@ couleur::couleur(){
 
 }
 
-couleur::couleur(std::string nom,int longueur, propriete* liste_propriete) {
-	// TODO Auto-generated constructor stub
+couleur::couleur(string nom,int longueur, propriete* liste_propriete) {
 	this->nom = nom;
 	this->longueur = longueur ;
 	this->liste_propriete = liste_propriete;
 }
 
-couleur::~couleur() {
-	// TODO Auto-generated destructor stub
-}
+couleur::~couleur() {}
 
 bool couleur::check_monopole(joueur* ptJoueur){
 	joueur Joueur = *ptJoueur;

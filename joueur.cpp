@@ -1,12 +1,7 @@
-/*
- * joueur.cpp
- *
- *  Created on: 23 déc. 2021
- *      Author: aveyronvictor
- */
-
 #include "joueur.h"
 #include "gobelet.h"
+#include <iostream> 
+using namespace std; 
 
 joueur::joueur(){
 	this->solde = 1500;
@@ -17,7 +12,7 @@ joueur::joueur(){
 	this->ptPion =NULL;
 }
 
-joueur::joueur(std::string nom,pion* ptPion ) {
+joueur::joueur(string nom,pion* ptPion ) {
 	this->solde = 1500;
 	this->ptPion = ptPion;
 	this->Nom = nom;
@@ -29,14 +24,14 @@ joueur::joueur(std::string nom,pion* ptPion ) {
 joueur::~joueur() {
 }
 
-void joueur::crediter(int credit){ //Un joueur reçoit une certaine somm
+void joueur::crediter(int credit){
 	this->solde += credit;
 }
 
-void joueur::debiter(int debit){ //Un joueur se fait débiter une certaine somme
+void joueur::debiter(int debit){ 
     this->solde -= debit;
     if (solde<=0) {
-    	std::cout << Nom << " a fait banqueroute !" << std::endl;
+    	cout << Nom << " a fait banqueroute !" << endl;
     }
 }
 
@@ -48,32 +43,32 @@ void joueur::jouer(Plateau plateau){
     if (solde > 0) {
         if (prison) {
         	if (this->temps_prison ==3  ){
-        		std::cout << "Vous êtes libéré de prison " << std::endl;
+        		cout << "Vous êtes libéré de prison " << endl;
         		this->prison = false;
         		this->temps_prison =0;
         		this->jouer(plateau);
         	}
-        	if (this->carte_liberation > 0 ){ // proposer sortie avec carte
-        		std::string response ;
-        		std::cout << "Voulez-vous utiliser votre carte Sortie de Prison ?" << std::endl ;
-        		std::cin >> response ;
+        	if (this->carte_liberation > 0 ){ 
+        		string response ;
+        		cout << "Voulez-vous utiliser votre carte Sortie de Prison ?" << endl ;
+        		cin >> response ;
         		if (response == "oui") {
         			this->prison = false;
         			this->carte_liberation -= 1 ;
         			this->jouer(plateau);
         			this->temps_prison= 0;
         		}
-        		else { // proposer de payer
-        			std::string response ;
-        			std::cout << "Voulez-vous payer 50 € pour sortir de prison ? " << std::endl;
-        			std::cin>> response;
+        		else { 
+        			string response ;
+        			cout << "Voulez-vous payer 50 € pour sortir de prison ? " << endl;
+        			cin>> response;
         			if (response =="oui"){
         				this->debiter(50);
         				this->prison = false;
         				this->temps_prison =0 ;
         				this->jouer(plateau);
         			}
-        			else { // Si le joueur refuse tout alors
+        			else { 
         				gobelet::lancer();
         				if (gobelet::Double()){
         					this->prison = false;
@@ -88,8 +83,7 @@ void joueur::jouer(Plateau plateau){
         	}
 
         }
-        else { // cas classique
-        	// A rajouter le choix de mettre des maisons ou pas
+        else { 
         	gobelet::lancer();
         	int deplacement = gobelet::getValeur();
         	this->ptPion->deplacer(deplacement,plateau);
@@ -103,7 +97,7 @@ void joueur::jouer(Plateau plateau){
         			    gobelet::lancer();
         			    int deplacement = gobelet::getValeur();
         			    this->ptPion->deplacer(deplacement,plateau);
-        			    if (gobelet::Double()){// DIRECTION PRISON
+        			    if (gobelet::Double()){
         			    		this->prison= true ;
         			    		this->ptPion->setPosition(&plateau.getListeCase()[10]);
         			    	}

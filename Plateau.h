@@ -1,10 +1,3 @@
-/*
- * Plateau.h
- *
- *  Created on: 23 déc. 2021
- *      Author: aveyronvictor
- */
-
 #ifndef PLATEAU_H_
 #define PLATEAU_H_
 
@@ -28,11 +21,10 @@ public:
 	Plateau();
 	virtual ~Plateau();
 	void creerCases();
-	//void lierCases();
 	Case* getCase(int IDCase );
 	Case* getListeCase(){return this->liste_case;};
 	void afficheCases();
 	void affciheCouleurs ();
 };
 
-#endif /* PLATEAU_H_ */
+#endif 

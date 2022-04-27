@@ -1,20 +1,15 @@
-/*
- * caseinutile.h
- *
- *  Created on: 18 janv. 2022
- *      Author: aveyronvictor
- */
-
 #ifndef CASEINUTILE_H_
 #define CASEINUTILE_H_
 
 #include "Case.h"
+#include <iostream> 
+using namespace std; 
 
 class case_inutile: public Case {
 public:
-	case_inutile(std::string nom, Case* suivante=NULL);
+	case_inutile(string nom, Case* suivante=NULL);
 	virtual ~case_inutile();
 	void arreterSur(){};
 };
 
-#endif /* CASEINUTILE_H_ */
+#endif 

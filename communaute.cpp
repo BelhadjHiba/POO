@@ -1,28 +1,20 @@
-/*
- * communaute.cpp
- *
- *  Created on: 23 déc. 2021
- *      Author: aveyronvictor
- */
-
 #include "communaute.h"
 #include "joueur.h"
+#include <iostream> 
+using namespace std; 
 
-
-communaute::communaute(std::string nom, Case* suivante):Case(nom,suivante) {
+communaute::communaute(string nom, Case* suivante):Case(nom,suivante) {
 	this->pile_carte_communaute = NULL;
 }
 
-communaute::~communaute() {
-	// TODO Auto-generated destructor stub
-}
+communaute::~communaute() {}
 
 
 void communaute::arreterSur(joueur* ptJoueur){
 	int choixCarte = rand() % (15) ;
 		joueur Joueur = *ptJoueur;
 		Carte CarteTiree = this->pile_carte_communaute[choixCarte];
-		std::cout << CarteTiree.getText() << std::endl;
+		cout << CarteTiree.getText() << endl;
 		Joueur.crediter(CarteTiree.getGain());
 		Joueur.debiter(CarteTiree.getPerte());
 
@@ -31,13 +23,13 @@ void communaute::arreterSur(joueur* ptJoueur){
 		}
 
 		if ( CarteTiree.getText() == "Payer les réparations de vos maisons : 25 € / Maison , 100 € /Hôtel" ) {
-			Joueur.crediter(0); // A remplacer qd hôtel sera là et tout
+			Joueur.crediter(0); 
 		}
 
 		if ( CarteTiree.getText() == "Payez une amende de 10 euros ou tirez une carte chance" ) {
-			std::cout << "Entrer 1 si vous voulez payer et 2 si vous voulez tirer une carte chance" << std::endl;
-			std::string reponse ;
-			std::cin >> reponse ;
+			cout << "Entrer 1 si vous voulez payer et 2 si vous voulez tirer une carte chance" << endl;
+			string reponse ;
+			cin >> reponse ;
 			if (reponse == "1" ) {
 				Joueur.debiter(10);
 			}

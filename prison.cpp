@@ -1,29 +1,19 @@
-/*
- * prison.cpp
- *
- *  Created on: 23 déc. 2021
- *      Author: aveyronvictor
- */
 
 #include "prison.h"
 #include "Case.h"
 #include "joueur.h"
+#include <iostream> 
+using namespace std; 
 
-prison::prison(std::string nom, Case* suivante):Case(nom,suivante){
+prison::prison(string nom, Case* suivante):Case(nom,suivante){
 
 }
 
 
-prison::~prison() {
-	// TODO Auto-generated destructor stub
-}
+prison::~prison() {}
 
 void prison::arreterSur(joueur* ptJoueur) {
-	// Je pens eque ça sera géré avant dans le main
-
 	bool incarcere = (*ptJoueur).getPrison();
-
-    ;
 }
 
 

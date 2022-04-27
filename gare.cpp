@@ -1,17 +1,13 @@
-/*
- * gare.cpp
- *
- *  Created on: 23 dÃ©c. 2021
- *      Author: aveyronvictor
- */
 #include "joueur.h"
 #include "gare.h"
+#include <iostream> 
+using namespace std; 
 
 gare::gare():propriete("undefinied",NULL,200,NULL,NULL){
 	this->ptCouleur = NULL;
 }
 
-gare::gare(std::string nom, int prixAchat, Case* suivante, joueur* ptProprietaire,int* ptLoyer):propriete(nom,ptLoyer,prixAchat,suivante, ptProprietaire) {
+gare::gare(string nom, int prixAchat, Case* suivante, joueur* ptProprietaire,int* ptLoyer):propriete(nom,ptLoyer,prixAchat,suivante, ptProprietaire) {
 	int* loyers = new int[4];
 	loyers[0] = 25 ;
 	loyers[1] = 50 ;
@@ -22,29 +18,26 @@ gare::gare(std::string nom, int prixAchat, Case* suivante, joueur* ptProprietair
 
 void gare::arreterSur(joueur* ptJoueur){
 	if (this->ptProprietaire == NULL){
-		std::string reponse;
-		std::cout << "Vous etes tombe sur la case " << this->nom <<" Cette propriete n'appartient a  personne. Souhaitez-vous l'acheter pour "<< prixAchat << "E ?"<< std::endl;
-		std::cin >> reponse;
+		string reponse;
+		cout << "Vous etes tombe sur la case " << this->nom <<" Cette propriete n'appartient a  personne. Souhaitez-vous l'acheter pour "<< prixAchat << "E ?"<< endl;
+		cin >> reponse;
 		if (reponse == "Oui") {
 			ptJoueur->debiter(prixAchat);
-			std::cout<<"Vous avez achete la propriete "<< this->nom << ". Votre solde est maintenant de " << ptJoueur->getSolde() << std::endl ;
-			this->ptProprietaire = ptJoueur; // On signale à la gare qu'elle à desormais un nouveau proprio
-		} //Il faut ajouter la propriÃ©tÃ© Ã  la liste des propriÃ©tÃ©s du joueur.
+			cout<<"Vous avez achete la propriete "<< this->nom << ". Votre solde est maintenant de " << ptJoueur->getSolde() << endl ;
+			this->ptProprietaire = ptJoueur; 
+		} 
 		else{
-			std::cout<< "Vous avez décidé de ne pas acheter cette propriété"<<std::endl;
+			cout<< "Vous avez décidé de ne pas acheter cette propriété"<<endl;
 		}
 	}
 	else{
 		couleur Couleur = *ptCouleur;
 		Couleur.checkGare(ptJoueur);
 		int nbr_gares = Couleur.checkGare(ptJoueur);
-		int loyer = ptLoyer[nbr_gares]; //Fonction qui n'existe pas pour l'instant: elle va chercher le nombre de gare que possede un joueur. On fait -1 car ptLoyer est une liste qui commence à 0.
-		//Le prix est diffÃ©rent en fonction du nombre de gare que le propriÃ©taire possÃ¨de.
-		std::cout << "Le proprietaire de cette case est "<< ptProprietaire << " vous lui devez " << loyer<<std::endl;
-		ptJoueur->debiter(loyer); //le joueur paye le locataire le prix du loyer
+		int loyer = ptLoyer[nbr_gares];
+		cout << "Le proprietaire de cette case est "<< ptProprietaire << " vous lui devez " << loyer<<endl;
+		ptJoueur->debiter(loyer);
 		ptProprietaire->crediter(loyer);
 	}
 }
-gare::~gare() {
-	// TODO Auto-generated destructor stub
-}
+gare::~gare() {}

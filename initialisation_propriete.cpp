@@ -1,10 +1,3 @@
-/*
- * initialisation_cartes.h
- *
- *  Created on: 12 janv. 2022
- *      Author: aveyronvictor
- */
-
 #ifndef INITIALISATION_PROPRIETE
 #define INITIALISATION_PROPRIETE
 
@@ -323,7 +316,7 @@ couleur* initialisation_propriete () {
 	liste_compagnie[1] = compagnie2;
 
 
-	// On peut maintenant initialiser les couleurs comme objets contenant la liste de terrains de leur couleur
+	// initialiser les couleurs comme objets contenant la liste de terrains de leur couleur
 
 	couleur Brun = couleur("brun",2,liste_terrain_bru);
 	couleur Bleuciel = couleur("bleu ciel",2,liste_terrain_blc);
@@ -334,7 +327,7 @@ couleur* initialisation_propriete () {
 	couleur Vert= couleur("vert",2,liste_terrain_ver);
 	couleur Bleu = couleur("bleu",2,liste_terrain_bleu);
 		
-	//On peut maintenant créer la liste des couleurs : 
+	//créer la liste des couleurs
 	liste_couleur[0] = Brun;
 	liste_couleur[1] = Bleuciel;
 	liste_couleur[2] = Violet;
@@ -345,7 +338,7 @@ couleur* initialisation_propriete () {
 	liste_couleur[7] = Bleu;
 	liste_couleur[8] = Gare;
 
-	// Et on peut maintenant affecter une couleur à chaque terrain : 
+	// affecter une couleur à chaque terrain 
 	ter1.setCouleur(&(liste_couleur[0]));
 	ter2.setCouleur(&(liste_couleur[0]));
 	
@@ -381,4 +374,4 @@ couleur* initialisation_propriete () {
 }
 
 
-#endif /* INITIALISATION_CARTES_H_ */
+#endif 
